@@ -14,6 +14,10 @@
 		FFF870152A2FE0C700A5E5D9 /* TaskmasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF870142A2FE0C700A5E5D9 /* TaskmasterTests.swift */; };
 		FFF8701F2A2FE0C700A5E5D9 /* TaskmasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF8701E2A2FE0C700A5E5D9 /* TaskmasterUITests.swift */; };
 		FFF870212A2FE0C700A5E5D9 /* TaskmasterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF870202A2FE0C700A5E5D9 /* TaskmasterUITestsLaunchTests.swift */; };
+		FFF8702F2A2FE71C00A5E5D9 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = FFF8702E2A2FE71C00A5E5D9 /* Apollo */; };
+		FFF870312A2FE71C00A5E5D9 /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = FFF870302A2FE71C00A5E5D9 /* ApolloSQLite */; };
+		FFF870332A2FE71C00A5E5D9 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = FFF870322A2FE71C00A5E5D9 /* ApolloWebSocket */; };
+		FFF8704D2A2FEEA000A5E5D9 /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = FFF8704C2A2FEEA000A5E5D9 /* schema.graphqls */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,9 @@
 		FFF8701A2A2FE0C700A5E5D9 /* TaskmasterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskmasterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFF8701E2A2FE0C700A5E5D9 /* TaskmasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskmasterUITests.swift; sourceTree = "<group>"; };
 		FFF870202A2FE0C700A5E5D9 /* TaskmasterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskmasterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FFF8704C2A2FEEA000A5E5D9 /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
+		FFF8704E2A2FEECF00A5E5D9 /* TaskList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TaskList.graphql; sourceTree = "<group>"; };
+		FFF870522A2FEFB400A5E5D9 /* TaskmasterAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TaskmasterAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF8702F2A2FE71C00A5E5D9 /* Apollo in Frameworks */,
+				FFF870332A2FE71C00A5E5D9 /* ApolloWebSocket in Frameworks */,
+				FFF870312A2FE71C00A5E5D9 /* ApolloSQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +84,8 @@
 		FFF86FF72A2FE0C500A5E5D9 = {
 			isa = PBXGroup;
 			children = (
+				FFF870512A2FEFB400A5E5D9 /* Packages */,
+				FFF8704B2A2FEEA000A5E5D9 /* graphql */,
 				FFF870022A2FE0C500A5E5D9 /* Taskmaster */,
 				FFF870132A2FE0C700A5E5D9 /* TaskmasterTests */,
 				FFF8701D2A2FE0C700A5E5D9 /* TaskmasterUITests */,
@@ -127,6 +139,23 @@
 			path = TaskmasterUITests;
 			sourceTree = "<group>";
 		};
+		FFF8704B2A2FEEA000A5E5D9 /* graphql */ = {
+			isa = PBXGroup;
+			children = (
+				FFF8704C2A2FEEA000A5E5D9 /* schema.graphqls */,
+				FFF8704E2A2FEECF00A5E5D9 /* TaskList.graphql */,
+			);
+			path = graphql;
+			sourceTree = "<group>";
+		};
+		FFF870512A2FEFB400A5E5D9 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				FFF870522A2FEFB400A5E5D9 /* TaskmasterAPI */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +172,11 @@
 			dependencies = (
 			);
 			name = Taskmaster;
+			packageProductDependencies = (
+				FFF8702E2A2FE71C00A5E5D9 /* Apollo */,
+				FFF870302A2FE71C00A5E5D9 /* ApolloSQLite */,
+				FFF870322A2FE71C00A5E5D9 /* ApolloWebSocket */,
+			);
 			productName = Taskmaster;
 			productReference = FFF870002A2FE0C500A5E5D9 /* Taskmaster.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +249,9 @@
 				Base,
 			);
 			mainGroup = FFF86FF72A2FE0C500A5E5D9;
+			packageReferences = (
+				FFF8702D2A2FE71C00A5E5D9 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = FFF870012A2FE0C500A5E5D9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFF8700B2A2FE0C600A5E5D9 /* Preview Assets.xcassets in Resources */,
+				FFF8704D2A2FEEA000A5E5D9 /* schema.graphqls in Resources */,
 				FFF870082A2FE0C600A5E5D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +621,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFF8702D2A2FE71C00A5E5D9 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFF8702E2A2FE71C00A5E5D9 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFF8702D2A2FE71C00A5E5D9 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		FFF870302A2FE71C00A5E5D9 /* ApolloSQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFF8702D2A2FE71C00A5E5D9 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloSQLite;
+		};
+		FFF870322A2FE71C00A5E5D9 /* ApolloWebSocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFF8702D2A2FE71C00A5E5D9 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloWebSocket;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FFF86FF82A2FE0C500A5E5D9 /* Project object */;
 }
