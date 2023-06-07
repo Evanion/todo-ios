@@ -1,0 +1,75 @@
+"""
+A directive used by the Apollo iOS client to annotate operations or fragments that should be used exclusively for generating local cache mutations instead of as standard operations.
+"""
+directive @apollo_client_ios_localCacheMutation on QUERY | MUTATION | SUBSCRIPTION | FRAGMENT_DEFINITION
+
+type Task {
+  """Task ID"""
+  id: Int!
+
+  """Task title"""
+  title: String!
+
+  """Extended description"""
+  description: String
+
+  """Task status"""
+  completed: Boolean
+
+  """Due date"""
+  dueDate: DateTime
+
+  """Created at"""
+  createdAt: DateTime!
+
+  """Last updated at"""
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  tasks: [Task!]!
+  task(id: ID!): Task!
+}
+
+type Mutation {
+  createTask(task: CreateTaskInput!): Task!
+  updateTask(updateTaskInput: UpdateTaskInput!): Task!
+  changeStatus(id: ID!, completed: Boolean!): Task!
+  removeTask(id: ID!): Task!
+}
+
+input CreateTaskInput {
+  """Task title"""
+  title: String!
+
+  """Extended description"""
+  description: String
+
+  """Due date"""
+  dueDate: DateTime
+}
+
+input UpdateTaskInput {
+  """Task title"""
+  title: String
+
+  """Extended description"""
+  description: String
+
+  """Due date"""
+  dueDate: DateTime
+
+  """Task ID"""
+  id: ID!
+}
+
+type Subscription {
+  taskAdded: Task!
+  taskUpdated: Task!
+  taskRemoved: Task!
+}
